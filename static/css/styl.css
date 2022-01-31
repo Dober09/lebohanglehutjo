@@ -1,0 +1,706 @@
+@font-face {
+  font-family: "boldUbuntu";
+  src: url(../font/Ubuntu-Bold.ttf);
+}
+
+@font-face {
+  font-family: "lightUbuntu";
+  src: url(../font/Ubuntu-Light.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.max-width {
+  max-width: 1300px;
+  padding: 0 80px;
+  margin: auto;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+/* upbtn */
+.scroll-up-btn{
+  position: fixed;
+  background-color: #1c87c9;
+  width: 42px;
+  height: 45px;
+  right: 30px;
+  bottom: 10px;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  line-height: 50px;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .3s ease;
+}
+
+.scroll-up-btn.show{
+  opacity: 1;
+  bottom: 30px;
+  pointer-events: auto;
+  
+}
+/* navbar styling */
+.navbar {
+  position: fixed;
+  padding: 30px 0;
+  width: 100%;
+  font-family: "boldUbuntu";
+  z-index: 999;
+  transform: all 0.3s ease;
+}
+
+.navbar.sticky {
+  /* padding:30px 0; */
+  background: #1c87c9;
+}
+
+.navbar .max-width {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .logo a {
+  font-size: 35px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.navbar .logo a span {
+  color: #1c87c9;
+  transition: all 0.3s ease;
+}
+.navbar.sticky .logo a span {
+  color: #fff;
+}
+
+.navbar .menu li {
+  list-style: none;
+  display: inline-block;
+}
+
+.navbar .menu li a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500px;
+  margin-left: 25px;
+  transform: color 0.3s ease;
+}
+
+.navbar .menu li a:hover {
+  color: #1c87c9;
+}
+
+.navbar.sticky .menu li a:hover {
+  color: #fff;
+}
+
+.menu-btn {
+  color: #fff;
+  font-size: 27px;
+  cursor: pointer;
+  display: none;
+}
+
+/* home section  */
+
+.home {
+  display: flex;
+  background: url("../img/pexels-photo-1029604.jpeg") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  color: #fff;
+  min-height: 50px;
+  font-family: "boldUbuntu";
+}
+
+.home .max-width {
+  margin: auto 0 auto 40px;
+}
+
+.home .home-content .text-1 {
+  font-size: 27px;
+}
+.home .home-content .text-2 {
+  font-size: 75px;
+  margin-left: -3px;
+}
+.home .home-content .text-3 {
+  font-size: 40px;
+  margin: 5px 0;
+}
+.home .home-content .text-3 span {
+  color: #1c87c9;
+}
+
+.home .home-content a {
+  display: inline-block;
+  background-color: #1c87c9;
+  color: #fff;
+  font-size: 25px;
+  padding: 12px 36px;
+  margin-top: 20px;
+  border-radius: 6px;
+  border: 2px solid #1c87c9;
+  transition: all 0.3s ease;
+}
+
+.home .home-content a:hover {
+  color: #1c87c9;
+  background-color: transparent;
+}
+
+/* common styles */
+.about,
+.service,
+.skills,
+.project,
+.contact {
+  padding: 100px 0;
+  font-family: "boldUbuntu";
+}
+
+.service .title,
+.skills .title,
+.about .title,
+.project .title,
+.contact .title {
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+}
+
+.service .title::before,
+.about .title::before,
+.skills .title::before,
+.project .title::before,
+.contact .title::before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 180px;
+  height: 3px;
+  background-color: #111;
+  transform: translateX(-50%);
+}
+.service .title::after,
+.about .title::after,
+.skills .title::after,
+.project .title::after,
+.contact .title::after {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  font-size: 18px;
+  color: #1c87c9;
+  padding: 5px;
+  background-color: #fff;
+  transform: translateX(-50%);
+}
+
+/* .about .title::after {
+  content: "who i am";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  font-size: 18px;
+  color: #1c87c9;
+  padding: 5px;
+  background-color: #fff;
+  transform: translateX(-50%);
+} */
+
+/* about section  */
+/* section{
+} */
+
+.about .title::after {
+  content: "who am i";
+}
+.about .about-content,
+.service .service-content,
+.skills .skills-content,
+.contact .contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.about .about-content .left {
+  width: 45%;
+}
+.about .about-content .left img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.about .about-content .right {
+  width: 55%;
+}
+
+.about .about-content .right .text {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.about .about-content .right .text span {
+  color: #1c87c9;
+}
+.about .about-content .right p {
+  text-align: justify;
+  font-family: "lightUbuntu";
+}
+.about .about-content .right a {
+  display: inline-block;
+  background-color: #1c87c9;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px 30px;
+  margin-top: 20px;
+  border-radius: 6px;
+  border: 2px solid #1c87c9;
+  transition: all 0.3s ease;
+}
+
+.about .about-content .right a:hover {
+  color: #1c87c9;
+  background-color: transparent;
+}
+
+/* service section  */
+
+.service,
+.project {
+  background: #111;
+  color: #fff;
+}
+.service .title::before,
+.project .title::before {
+  background-color: #fff;
+}
+.service .title::after 
+{
+  content: "what i provide";
+  background: #111;
+}
+
+.service .service-content .card {
+  width: calc(33% - 20px);
+  background-color: #222;
+  text-align: center;
+  padding: 20px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.service .service-content .card i {
+  font-size: 50px;
+  color: #1c87c9;
+  transition: color 0.3s ease;
+}
+.service .service-content .card:hover i {
+  color: #fff;
+}
+
+.service .service-content .card .box {
+  transition: all 0.3s ease;
+}
+.service .service-content .card:hover {
+  background-color: #1c87c9;
+}
+.service .service-content .card:hover .box {
+  transform: scale(1.05);
+}
+.service .service-content .card .text {
+  font-size: 25px;
+  font-weight: 500;
+  margin: 10px 0 7px 0;
+}
+.service .service-content .card p {
+  font-family: "lightUbuntu";
+}
+
+/* skills */
+
+.skills .title::after {
+  content: "what i know";
+}
+
+.skills .skills-content .column {
+  width: calc(50% - 20px);
+}
+
+.skills .skills-content .left p {
+  font-family: "lightUbuntu";
+  text-align: justify;
+}
+.skills .skills-content .left a {
+  display: inline-block;
+  background-color: #1c87c9;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px 16px;
+  margin-top: 20px;
+  border-radius: 6px;
+  border: 2px solid #1c87c9;
+  transition: all 0.3s ease;
+}
+.skills .skills-content .left .text {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.skills .skills-content .right .bars {
+  margin-bottom: 15px;
+}
+.skills .skills-content .right .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom:5px ; */
+}
+
+.skills .skills-content .right .line {
+  height: 3px;
+  width: 100%;
+  margin: 10px 0;
+  background-color: #eee;
+  position: relative;
+}
+.skills .skills-content .right .line::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #1c87c9;
+}
+.skills .skills-content .right .html::before {
+  width: 100%;
+}
+.skills .skills-content .right .css::before {
+  width: 100%;
+}
+.skills .skills-content .right .js::before {
+  width: 100%;
+}
+.skills .skills-content .right .python::before {
+  width: 100%;
+}
+.skills .skills-content .right .c::before {
+  width: 100%;
+}
+
+/* .project section */
+.project .title::after {
+  content: "what i have done";
+  background-color: #111;
+}
+
+.project .carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* border: rebeccapurple solid; */
+}
+
+.project .carousel .card {
+  background-color: #222;
+  padding: 8px 36px;
+  border-radius: 6px;
+  text-align: center;
+  margin: 5px;
+  width: 36%;
+}
+.project .carousel .card img {
+  height: 150px;
+  width: 200px;
+  object-fit: cover;
+  border: 5px solid #1c87c9;
+}
+.project .carousel .card .text {
+  font-size: 25px;
+  margin: 10px 0 7px 0;
+}
+.project .carousel .card .box p {
+  font-family: "lightUbuntu";
+}
+.project .carousel .card .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* contact section  */
+
+.contact .title::after {
+  content: "get in touch";
+}
+
+.contact .contact-content .column {
+  width: calc(50% - 30px);
+}
+.contact .contact-content .text {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.contact .contact-content .left p {
+  text-align: justify;
+}
+.contact .contact-content .left .icons {
+  margin: 10px 0;
+}
+
+.contact .contact-content .row {
+  display: flex;
+  height: 65px;
+  align-items: center;
+}
+.contact .contact-content .row .info {
+  margin-left: 30px;
+  font-family: "lightUbuntu";
+}
+
+.contact .contact-content .row i {
+  color: #1c87c9;
+}
+.contact .contact-content .row .info .head {
+  font-weight: 600;
+}
+
+.contact .right form .fields {
+  display: flex;
+}
+
+.contact .right form .field,
+.contact .right .fields .field {
+  height: 45px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.contact .right form .name {
+  margin-right: 10px;
+}
+.contact .right form .textarea{
+  height: 80px;
+}
+.contact .right form .email {
+  margin-left: 10px;
+}
+.contact .right form .field input,
+.contact .right form .textarea textarea {
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgray;
+  outline: none;
+  padding: 0 15px;
+  border-radius: 6px;
+  font-size: 17px;
+  font-family: "lightUbuntu";
+  text-transform: capitalize;
+}
+
+.contact .right form .textarea textarea {
+  padding-top:10px;
+  resize: none;
+}
+
+
+.contact .right  form .btn{
+  height: 47px;
+  width: 170px;
+}
+.contact .right  form .btn button{
+  width: 100%;
+  height: 100%;
+  border:  2px solid #1c87c9;
+  background-color: #1c87c9;
+  color: #fff;
+  font-size: 20px;
+  font-family: 'boldUbuntu';
+  text-transform:capitalize;
+  border-radius: 6px;
+  transition: all .3s ease ;
+}
+.contact .right  form .btn button:hover{
+  background-color: transparent;
+  color: #1c87c9;
+}
+
+
+/* responsive media  */
+@media (max-width: 1300px) {
+  .home .max-width {
+    margin-left: 0px;
+  }
+}
+@media (max-width: 1104px) {
+  .about .about-content .left img {
+    height: 350px;
+    width: 350px;
+  }
+}
+
+@media (max-width: 991px) {
+  .max-width {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 947px) {
+  .max-width {
+    padding: 0 50px;
+  }
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    background-color: #111;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    text-align: center;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar .menu.active {
+    left: 0;
+  }
+  .navbar .menu li {
+    display: block;
+  }
+  .navbar .menu li a {
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 27px;
+  }
+
+  .home .home-content .text-2 {
+    font-size: 70px;
+  }
+  .home .home-content .text-3 {
+    font-size: 35px;
+  }
+
+  .home .home-content a {
+    font-size: 23px;
+    padding: 10px 30px;
+  }
+  .max-width {
+    max-width: 800px;
+  }
+  .about .about-content .column {
+    width: 50%;
+  }
+  .about .about-content .left {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 60px;
+  }
+
+  .about .about-content .right {
+    flex-basis: 100%;
+  }
+
+  .service .service-content .card{
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+  }
+  .skills .skills-content .column {
+    margin-bottom: 27px;
+  }
+  .project .carousel .card {
+    padding: 10px 30px;
+    width: 100%;
+  }
+
+  .contact .contact-content .column {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+}
+
+/* footer  */
+
+footer{
+  font-family: "lightUbuntu";
+  padding: 20px 23px;
+  background-color: #111;
+  color: #fff;
+}
+
+footer p{
+  display: flex;
+  justify-content: center;
+  
+}
+
+footer p a{
+  color: #1c87c9;
+  transition: all .3s ease;
+}
+
+
+footer p a:hover{
+  text-decoration: underline;
+}
+
+
+@media (max-width: 690px) {
+  .max-width {
+    padding: 0 23px;
+  }
+  .home .home-content .text-2 {
+    font-size: 60px;
+  }
+  .home .home-content .text-3 {
+    font-size: 32px;
+  }
+
+  .home .home-content a {
+    font-size: 20px;
+    padding: 9px 25px;
+  }
+  .service .service-content .card,
+  .skills .skills-content .column {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  /* .max-width{
+        padding: 0 23px;
+    } */
+  .home .home-content .text-2 {
+    font-size: 50px;
+  }
+  .home .home-content .text-3 {
+    font-size: 27px;
+  }
+}
