@@ -1,22 +1,21 @@
-from django.http.response import HttpResponse
 from django.shortcuts import render
-import smtplib
+from django.core.mail import send_mail
 
 
 
-def email_mess(sender,subject,mess):
-    me = 'js0565351@gmail.com'
-    password = 'space to'
-    smptObj = smtplib.SMTP('smtp.gmail.com')
-    smptObj.starttls()
-    smptObj.login(user=me,password=password)
-    smptObj.sendmail(from_addr=sender,to_addrs=me,msg=f"subject:{subject}\n\n{sender}\n\n{mess}")
-    smptObj.close()
+
 
 def index(request):
     if request.method == 'POST':
-        email_mess(request.POST['email'],request.POST['subject'], request.POST['message'])
-        return HttpResponse('message sent')
+        message_username = request.POST['name']
+        message_useremail = request.POST['email']
+        message_subject = request.POST['subject']
+        message_mail= request.POST['message']
+
+        send_mail(subject=message_subject ,message=f'{message_useremail}\n{message_mail}',
+from_email=message_useremail, recipient_list=['js0565351@gmail.com'],)
+      
+        return render(request ,'accounts/message.html',{'message_username':message_username})
 
     
     return render(request ,'accounts/message.html')

@@ -1,52 +1,50 @@
-{%extends 'index.html'%}
+{%extends 'index.html'%} {%block content%} {% if message_username%}
+<center>
+  <div class="text">Thanks {{message_username}}</div>
+  <p>I have received your email and i will respond shortly...</p>
+</center>
 
-{%block content%}
+{%else%}
 <div class="column right">
-            <div class="text">Message me</div>
-            <form action="" method="post">
-                {%csrf_token%}
-              <div class="fields">
-                <div class="field name">
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder="Name"
-                    required
-                  />
-                </div>
-                <div class="field email">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email "
-                    required
-                  />
-                </div>
-              </div>
-              <div class="field subject">
-                <input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  placeholder="subject"
-                  required
-                />
-              </div>
-              <div class="field textarea">
-                <textarea
-                  name="message"
-                  id=""
-                  cols="30"
-                  rows="10"
-                  placeholder="Message"
-                  required
-                ></textarea>
-              </div>
-              <div class="btn">
-                <button type="submit">send message</button>
-              </div>
-            </form>
-          </div>
-{%endblock%}
+  <div class="text">Message me</div>
+  <form action="" method="post">
+    {%csrf_token%}
+    <div class="fields">
+      <div class="field name">
+        <input type="text" name="name" id="name" placeholder="Name" required />
+      </div>
+      <div class="field email">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email "
+          required
+        />
+      </div>
+    </div>
+    <div class="field subject">
+      <input
+        type="text"
+        name="subject"
+        id="subject"
+        placeholder="subject"
+        required
+      />
+    </div>
+    <div class="field textarea">
+      <textarea
+        name="message"
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="Message"
+        required
+      ></textarea>
+    </div>
+    <div class="btn">
+      <button type="submit">send message</button>
+    </div>
+  </form>
+</div>
+{%endif%} {%endblock%}
